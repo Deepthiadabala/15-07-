@@ -48,6 +48,8 @@ public class BikeModel {
 	private String wheelType;
 	@Column(name = "StartingMechanism", length = 30)
 	private String startingMechanism;
+	@Column(name = "ImageUrl")
+	private String imageUrl;
 
 	public BikeModel(String modelName, int price, String engineCapacity, String mileage, String gears, String brakes,
 			String fuelTankCapacity, String wheelType, String startingMechanism) {

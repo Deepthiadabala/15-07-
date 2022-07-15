@@ -1,11 +1,10 @@
 package com.stg.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +19,7 @@ import com.stg.model.User;
 import com.stg.service.BikeService;
 
 @RestController
+@CrossOrigin( "*")
 @RequestMapping(value = "bike")
 public class BikeController {
 	@Autowired
@@ -31,6 +31,12 @@ public class BikeController {
 		BikeModel bikeModel2 = bikeService.createBike(bikeModel);
 		return new ResponseEntity<BikeModel>(bikeModel2, HttpStatus.CREATED);
 	}
+
+	
+	  @GetMapping("/getAllBikes") public ResponseEntity<List<BikeModel>>
+	  getAllBikes() { List<BikeModel> bikeModels = bikeService.getAllBikes();
+	  return new ResponseEntity<List<BikeModel>>(bikeModels, HttpStatus.CREATED); }
+	 
 
 	@GetMapping("/readBikeById/{bikeId}")
 	public ResponseEntity<BikeModel> readBikeById(@PathVariable int bikeId) {

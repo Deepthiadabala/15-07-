@@ -21,5 +21,9 @@ public interface BikeService {
 
 	public abstract List<User> getUsersByModelNo(int modelNo);
 
+	public abstract List<BikeModel> getAllBikes();
+
+	
+
 	
 }

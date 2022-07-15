@@ -81,4 +81,10 @@ public class BikeServiceImpl implements BikeService {
 		return bikeModel.getUsers();
 	}
 
+	@Override
+	public List<BikeModel> getAllBikes() {
+		
+		return bikeModelRepository.findAll();
+	}
+
 }
